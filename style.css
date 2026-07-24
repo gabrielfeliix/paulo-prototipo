@@ -1376,6 +1376,40 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 16px;
 }
 
+.btn-bio-scroll {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border-radius: 8px;
+    background-color: var(--black);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: var(--transition-brutal);
+    box-shadow: 4px 4px 0px 0px var(--cyan);
+    border: 2px solid var(--black);
+}
+
+.btn-bio-scroll:hover {
+    background-color: var(--blue);
+    color: var(--white);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px var(--black);
+}
+
+.btn-bio-scroll svg {
+    color: var(--cyan);
+    transition: transform 0.2s ease;
+}
+
+.btn-bio-scroll:hover svg {
+    transform: translateY(3px);
+    color: var(--white);
+}
+
 .instagram-bio-btn {
     display: inline-flex;
     align-items: center;
@@ -1750,9 +1784,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .partner-logo-img.eptec-img-white {
-    max-height: 54px;
-    max-width: 160px;
-    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 240, 255, 0.25));
+    max-height: 75px;
+    max-width: 220px;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0, 240, 255, 0.35));
 }
 
 .partner-logo-info {

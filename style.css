@@ -1656,7 +1656,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
-/* Partner Logo Items (Frameless PNG / SVG Rendering) */
+/* Partner Logo Items (Frameless PNG / SVG Rendering with Descriptions) */
 .partner-logo-item {
     padding: 16px 20px;
     border: 2px solid var(--black);
@@ -1665,7 +1665,8 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    min-height: 72px;
+    gap: 16px;
+    min-height: 76px;
     transition: var(--transition-brutal);
 }
 
@@ -1675,16 +1676,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .partner-logo-img {
     max-height: 44px;
-    max-width: 180px;
+    max-width: 140px;
     width: auto;
     height: auto;
     object-fit: contain;
     display: block;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+    flex-shrink: 0;
 }
 
 .partner-logo-item.highlight-logo .partner-logo-img {
     filter: drop-shadow(0 2px 6px rgba(0, 240, 255, 0.15));
+}
+
+.partner-logo-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.partner-brand-sub {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: rgba(0, 0, 0, 0.7);
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+
+.partner-logo-item.highlight-logo .partner-brand-sub {
+    color: var(--cyan);
 }
 
 .partner-link-icon {

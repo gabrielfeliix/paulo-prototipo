@@ -2246,15 +2246,15 @@ h1, h2, h3, h4, h5, h6 {
         align-items: center;
         justify-content: center;
         width: 100%;
-        max-width: 360px;
         margin: 0 auto 32px auto;
-        gap: 16px;
+        gap: 14px;
     }
 
     .meta-item {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
+        width: fit-content;
+        max-width: 100%;
+        justify-content: flex-start;
+        text-align: left;
         box-sizing: border-box;
     }
     

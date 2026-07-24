@@ -1707,8 +1707,13 @@ h1, h2, h3, h4, h5, h6 {
     flex-shrink: 0;
 }
 
-.partner-logo-img.qwize-img-white,
+.partner-logo-img.qwize-img-white {
+    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 240, 255, 0.25));
+}
+
 .partner-logo-img.eptec-img-white {
+    max-height: 54px;
+    max-width: 160px;
     filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 240, 255, 0.25));
 }
 

@@ -143,6 +143,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
+    // 4.5 WHATSAPP PHONE MASK (ONLY NUMBERS, FORMAT: (XX) XXXXX-XXXX)
+    // ==========================================================================
+    const whatsappInput = document.getElementById('whatsapp');
+    if (whatsappInput) {
+        whatsappInput.addEventListener('input', (e) => {
+            const input = e.target;
+            const selectionStart = input.selectionStart;
+            let value = input.value.replace(/\D/g, ''); // Remove non-digits
+            
+            // If user pastes/types country code +55, remove it
+            if (value.startsWith('55') && (value.length === 12 || value.length === 13)) {
+                value = value.slice(2);
+            }
+            
+            if (value.length > 11) {
+                value = value.slice(0, 11);
+            }
+            
+            let formatted = '';
+            if (value.length === 0) {
+                formatted = '';
+            } else if (value.length <= 2) {
+                formatted = `(${value}`;
+            } else if (value.length <= 6) {
+                formatted = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+            } else if (value.length <= 10) {
+                formatted = `(${value.slice(0, 2)}) ${value.slice(2, 6)}-${value.slice(6)}`;
+            } else {
+                formatted = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+            }
+
+            // Count how many digits were before the cursor
+            const digitsBeforeCursor = input.value.slice(0, selectionStart).replace(/\D/g, '').length;
+            
+            input.value = formatted;
+            
+            // Re-calculate the cursor position based on the formatted string
+            let newCursorPos = 0;
+            let digitCount = 0;
+            for (let i = 0; i < formatted.length; i++) {
+                if (digitCount === digitsBeforeCursor) {
+                    break;
+                }
+                if (/\d/.test(formatted[i])) {
+                    digitCount++;
+                }
+                newCursorPos++;
+            }
+            
+            // Adjust cursor position if it ends up on a non-digit character (e.g. formatting symbol)
+            while (newCursorPos < formatted.length && !/\d/.test(formatted[newCursorPos])) {
+                newCursorPos++;
+            }
+            
+            input.setSelectionRange(newCursorPos, newCursorPos);
+        });
+    }
+
+    // ==========================================================================
     // 5. MODULES SLIDER (MOBILE ONLY CARD STACK)
     // ==========================================================================
     const sliderContainer = document.querySelector('.modules-slider-container');

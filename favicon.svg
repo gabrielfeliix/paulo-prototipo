@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+    <defs>
+        <!-- Background Gradient -->
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#080c16" />
+            <stop offset="100%" stop-color="#02040a" />
+        </linearGradient>
+        
+        <!-- W Gradient (Cyan to Blue) -->
+        <linearGradient id="w-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#00f0ff" />
+            <stop offset="100%" stop-color="#0072ff" />
+        </linearGradient>
+
+        <!-- Subtle Glow Filter for W -->
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="8" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+    </defs>
+    
+    <!-- Base Icon Card Background -->
+    <rect x="12" y="12" width="488" height="488" rx="120" fill="url(#bg-grad)" stroke="#00f0ff" stroke-width="12" stroke-opacity="0.2" />
+    
+    <!-- Letter Q (White, Geometric) -->
+    <circle cx="159" cy="256" r="80" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round" />
+    <path d="M 215 312 L 260 357" stroke="#ffffff" stroke-width="32" stroke-linecap="round" />
+    
+    <!-- Letter W (Cyan/Blue Gradient with Glow) -->
+    <path d="M 283 176 L 320.5 336 L 358 230 L 395.5 336 L 433 176" 
+          fill="none" 
+          stroke="url(#w-grad)" 
+          stroke-width="32" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#glow)" />
+</svg>
